@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 
+import { AuthService } from './services/auth.service';
+
 const routes: Routes = [
     {
         path: '',
@@ -32,7 +34,9 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

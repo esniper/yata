@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from '../../services/auth.service';
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -12,18 +12,18 @@ export class SignInComponent implements OnInit {
 
   user: Observable<firebase.User>;
 
-  constructor(public afAuth: AngularFireAuth) {
-    this.user = afAuth.authState;
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
   }
 
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.authService.login();
+    this.user = this.authService.getUser();
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.authService.logout();
   }
 }
