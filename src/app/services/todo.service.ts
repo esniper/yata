@@ -8,8 +8,9 @@ export class TodoService {
 
   constructor(
     public af:AngularFireDatabase
-  ) {
-      this.todos = this.af.list('/todos') as FirebaseListObservable<Todo[]>;
-  }
+  ) {}
 
+  getTodos() {
+    return this.af.list('/todos') as FirebaseListObservable<Todo[]>;
+  }
 }
