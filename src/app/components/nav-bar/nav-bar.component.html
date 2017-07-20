@@ -1,0 +1,8 @@
+YATA:
+<div *ngIf="isLoggedIn">
+    <div>User Name: {{ (currentUser)?.displayName }}</div>
+    <button (click)="logout()">Logout</button>
+</div>
+<div *ngIf="!isLoggedIn">
+    <button (click)="login()">Login</button>
+</div>
