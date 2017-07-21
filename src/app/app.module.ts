@@ -3,6 +3,7 @@ import { environment } from '../environments/environment';
 
 // Import library modules
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -39,6 +40,7 @@ const routes: Routes = [
   providers: [
     AuthService,
     TodoService,
+    AngularFireDatabase
   ],
   bootstrap: [AppComponent]
 })

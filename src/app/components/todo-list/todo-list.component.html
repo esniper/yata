@@ -1,5 +1,6 @@
 <ul>
-  <li *ngFor="let todo of todos">
+  <li *ngFor="let todo of todos | async">
     {{ todo.text }}
   </li>
 </ul>
+<div *ngIf="(todos|async)?.length === 0">No todos</div>
